@@ -15,7 +15,6 @@ var timerInterval = setInterval(function() {
 }
 
 function startQuiz(){
-    console.log("started")
     startButton.classList.add("hide")
     questionContainerElement.classList.remove("hide")
     shuffledQuestions = questions.sort(() => Math.random() - .5)
@@ -25,15 +24,42 @@ function startQuiz(){
 }
 
 function setNextQuestion(){
+    resetState()
     showQuestion(shuffledQuestions[currentQuestionsIndex]);
 }
 
 function showQuestion(question) {
-    
+    questionElement.innerText = question.question
+    question.answers.forEach(answer => {
+        var button = document.createElement("button")
+        button.innerText = answer.text
+        button.classList.add("button")
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        button.addEventListener("click", selectAnswer)
+        answerButtonElement.appendChild(button)
+    })
+}
+
+function resetState() {
+    nextButton.classList.add("hide")
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild
+        (answerButtonsElement.firstChild)
+    }
 }
 
 function selectAnswer(){
+    const selectedButton = e.target
+    const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(answerButtonsElement.children)
 
 }
 
+const questions = [
+    }
 
+    {
+]
