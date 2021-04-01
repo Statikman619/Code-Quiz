@@ -1,7 +1,7 @@
 var startButton = document.getElementById("start-button");
 var nextButton = document.getElementById("next-button")
 var timer = document.getElementById("timer");
-var questionContainerElement = document.getElementById("question-Container")
+var questionContainerElement = document.getElementById("question-container")
 var questionElement = document.getElementById("question")
 var answerButtonsElement = document.getElementById("answer-Buttons")
 var timeLeft = 75
@@ -11,19 +11,24 @@ let shuffledQuestions, currentQuestionsIndex
 startButton.addEventListener("click", startQuiz)
 nextButton.addEventListener("click", () => {
     currentQuestionsIndex++
-    setNextQuestion()
+    setNextQuestion()})
+
+function startTimer(){
+    var timerInterval = setInterval(function() {
+        timeLeft--;
+        timer.textContent = "Time Left: " + timeLeft;
+        if (timeLeft <=0){
+            clearInterval(timerInterval)
+        }
+        }, 1000)
 }
 
-var timerInterval = setInterval(function() {
-    timeLeft--;
-    timer.textContent = "Time Left: " + timeLeft;
-    if (timeLeft <=0)
-    }, 1000)
-}
+
+
 
 function startQuiz(){
+    startTimer()
     startButton.classList.add("hide")
-    questionContainerElement.classList.remove("hide")
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionsIndex = 0
     questionContainerElement.classList.remove("hide")
@@ -65,12 +70,12 @@ function selectAnswer(e){
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
-    if (shuffledQuestions.length > currentQuestionsIndex + 1)
+    if (shuffledQuestions.length > currentQuestionsIndex + 1){
     nextButton.classList.remove("hide")
     } else {
         startButton.innerText = "restart"
         startButton.classList.remove("hide")
-    }
+    }}
 
 function setStatusClass(element, correct) {
     clearStatusClass(element)
@@ -88,5 +93,5 @@ function clearStatusClass(element) {
 
 const questions = [
 
-    {
+    {}
 ]
