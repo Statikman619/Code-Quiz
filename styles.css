@@ -16,6 +16,15 @@ body {
     height 100vw;
     justify-content: center;
     align-items: center;
+
+body.correct {
+    --hue: var(--hue-correct);
+}
+
+body.wrong {
+    --hue: var(--hue-wrong);
+}
+
 }
 
 .container {
@@ -23,13 +32,14 @@ body {
     max-width: 80%;
     background-color: aqua;
     border-radius: 10px
+    padding: 10px;
 }
 
 .button-grid{
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 10px;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 .button {
@@ -44,6 +54,14 @@ body {
 
 .button:hover {
     border-color: black;
+}
+
+.button.correct {
+    --hue: var(--hue-correct);
+}
+
+.button.wrong {
+    --hue: var(--hue-wrong);
 }
 
 .start-button, .next-button{
