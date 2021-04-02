@@ -23,8 +23,17 @@ function startTimer(){
         }, 1000)
 }
 
+var initials = "";
+var score = 0;
+var highScoreList = JSON.parse(localStorage.getItem("highscore")) || [];
+var list = JSON.parse("highscore")
 
-
+SVGNumberList.addEventListener("click", function(){
+    highScoreList.name = initials;
+    highScoreList.score = score;
+    hideAll();
+    showScore();
+}
 
 function startQuiz(){
     startTimer()
@@ -138,3 +147,21 @@ const questions = [
        ]
     }, 
 ]
+
+    quizIndex++;
+    if (quizIndex > 4) {
+        //run end quiz function
+        clearInterval(timerInterval);
+        console.log("Quiz Over");
+    } else {
+        startQuiz();
+}
+document.querySelector("#initials-submit").addEventListener("click", function) {
+    initials + document.querySelector("#initials")
+    console.log(initials);
+})
+
+function endGame() {
+    //end the quiz
+    //track your score by logging your initials
+}
