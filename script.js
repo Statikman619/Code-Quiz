@@ -3,7 +3,7 @@ var nextButton = document.getElementById("next-button")
 var timer = document.getElementById("timer");
 var questionContainerElement = document.getElementById("question-container")
 var questionElement = document.getElementById("question")
-var answerButtonsElement = document.getElementById("answer-Buttons")
+var answerButtonsElement = document.getElementById("answer-buttons")
 var timeLeft = 75
 
 let shuffledQuestions, currentQuestionsIndex
@@ -92,6 +92,49 @@ function clearStatusClass(element) {
 }
 
 const questions = [
-
-    {}
+    {
+    question: "When was Javascript created?",
+    answers: [
+        { Text: "1995", correct: true},
+        { Text: "1993", correct: false},
+        { Text: "1997", correct: false},
+        { Text: "1999", correct: false}
+       ]
+    },
+    { 
+    question: "What are Javascript data types?",
+    answers: [
+        { Text: "Number", correct: true},
+        { Text: "String", correct: true},
+        { Text: "Boolean", correct: true},
+        { Text: "All the above", correct: true}
+       ]
+    },
+    {
+    question: "Is Javascript case sensitive?",
+    answers: [
+        { Text: "Yes", correct: true},
+        { Text: "No", correct: false},
+        { Text: "Maybe", correct: false},
+        { Text: "I don't know", correct: false}
+       ]
+    }, 
+    {
+    question: "What does DOM stand for?",
+    answers: [
+        { Text: "Does only math", correct: false},
+        { Text: "Document Object Model", correct: true},
+        { Text: "Daily objective media", correct: false},
+        { Text: "Document overview media", correct: false}
+       ]
+    },
+    {
+    question: "Which built in method sorts the elements of an array?",
+    answers: [
+        { Text: "Reverse", correct: false},
+        { Text: "Element", correct: false},
+        { Text: "Sort", correct: true},
+        { Text: "Object", correct: false}
+       ]
+    }, 
 ]

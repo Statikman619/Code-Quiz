@@ -5,6 +5,8 @@
 
 :root {
     --hue-neutral: 200;
+    --hue-correct: 145;
+    --hue-wrong: 0;
 }
 
 body {
@@ -16,6 +18,7 @@ body {
     height 100vw;
     justify-content: center;
     align-items: center;
+    background-color: hsl(var(--hue), 100%, 50%);
 
 body.correct {
     --hue: var(--hue-correct);
@@ -56,6 +59,8 @@ body.wrong {
 
 .button.correct {
     --hue: var(--hue-correct);
+    color: black;
+
 }
 
 .button.wrong {
