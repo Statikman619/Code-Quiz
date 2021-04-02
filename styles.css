@@ -36,8 +36,7 @@ body.wrong {
   max-width: 80%;
   background-color: aqua;
   border-radius: 10px;
-  padding: 10px;
-}
+
 
 .button-grid {
   display: grid;

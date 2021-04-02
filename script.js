@@ -46,14 +46,14 @@ const questions = [
   },
 ];
 
-var startButton = document.getElementById("start-button");
-var nextButton = document.getElementById("next-button");
-var timer = document.getElementById("timer");
-var questionContainerElement = document.getElementById("question-container");
-var questionElement = document.getElementById("question");
-var answerButtonsElement = document.getElementById("answer-buttons");
-var timeLeft = 75;
-// var quizIndex = 0
+let startButton = document.getElementById("start-button");
+let nextButton = document.getElementById("next-button");
+let timer = document.getElementById("timer");
+let questionContainerElement = document.getElementById("question-container");
+let questionElement = document.getElementById("question");
+let answerButtonsElement = document.getElementById("answer-buttons");
+let timeLeft = 75;
+// let quizIndex = 0
 let timerInterval;
 let shuffledQuestions, quizIndex;
 
@@ -75,10 +75,10 @@ function startTimer() {
   }, 1000);
 }
 
-var initials = "";
-var score = 0;
-var highScoreList = JSON.parse(localStorage.getItem("highscore")) || [];
-// var list = JSON.parse("highscore")
+let initials = "";
+let score = 0;
+let highScoreList = JSON.parse(localStorage.getItem("highscore")) || [];
+// let list = JSON.parse("highscore")
 
 document.querySelector(".Highscores").addEventListener("click", function () {
   highScoreList.name = initials;
@@ -105,14 +105,14 @@ function setNextQuestion() {
 function showQuestion(question) {
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
-    var button = document.createElement("button");
+    let button = document.createElement("button");
     button.textContent = answer.text;
     button.classList.add("button");
     if (answer.correct) {
       button.dataset.correct = answer.correct;
     }
     button.addEventListener("click", selectAnswer);
-    var answerButtonElement = document.getElementById("answer-buttons");
+    let answerButtonElement = document.getElementById("answer-buttons");
     answerButtonElement.appendChild(button);
   });
 }
@@ -166,6 +166,12 @@ document
     initials + document.querySelector("#initials");
     console.log(initials);
   });
+
+function myStorage(initials) {
+  localStorage.setItem("initials", initials);
+}
+
+submit.addEventListener("click", submit);
 
 function endGame() {
   clearInterval(timerInterval);
