@@ -1,3 +1,4 @@
+//The 5 questions for my code quiz
 const questions = [
   {
     question: "When was Javascript created?",
@@ -63,6 +64,7 @@ nextButton.addEventListener("click", () => {
   setNextQuestion();
 });
 
+//The timer and and time left section
 function startTimer() {
   timerInterval = setInterval(function () {
     timeLeft--;
