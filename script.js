@@ -56,6 +56,7 @@ let answerButtonsElement = document.getElementById("answer-buttons");
 let timeLeft = 75;
 // let quizIndex = 0
 let timerInterval;
+//Changes the question order every time you start the quiz
 let shuffledQuestions, quizIndex;
 
 startButton.addEventListener("click", startQuiz);
@@ -112,16 +113,17 @@ document.querySelector(".Highscores").addEventListener("click", function () {
   showScore();
 });
 
+//The button for starting my quiz
 function startQuiz() {
   startTimer();
   startButton.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   quizIndex = 0;
   questionContainerElement.classList.remove("hide");
-  //hide submit button
   setNextQuestion();
 }
 
+//The function for setting the next question and resetting to the default state
 function setNextQuestion() {
   resetState();
   showQuestion(shuffledQuestions[quizIndex]);
@@ -150,6 +152,7 @@ function resetState() {
   }
 }
 
+//The function when you select an answer
 function selectAnswer(e) {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
@@ -180,11 +183,13 @@ function setStatusClass(element, correct) {
   }
 }
 
+//Classes that show the background color for correct and wrong
 function clearStatusClass(element) {
   element.classList.remove("correct");
   element.classList.remove("wrong");
 }
 
+//Submitting your initials
 document
   .querySelector("#initials-submit")
   .addEventListener("click", function () {
@@ -192,6 +197,7 @@ document
     console.log(initials);
   });
 
+//My local storage
 function myStorage(initials) {
   localStorage.setItem("initials", initials);
 }
