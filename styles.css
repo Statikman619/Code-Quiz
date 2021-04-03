@@ -1,5 +1,7 @@
 /* all the element will be box-sizing */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -37,10 +39,11 @@ body.wrong {
 /* The styling for our question container */
 .container {
   width: 800px;
-  max-width: 80%;
+  max-width: 25%;
   background-color: aqua;
   border-radius: 10px;
-
+  padding-left: 15px;
+}
 /* The styling for our button layout */
 .button-grid {
   display: grid;

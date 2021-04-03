@@ -78,7 +78,7 @@ function startTimer() {
   }, 1000);
 }
 
-// let initials = "";
+let initials = "";
 // let score = 0;
 // //Display High Score list
 // let highScoreList = JSON.parse(localStorage.getItem("highscore")) || [];
@@ -130,6 +130,7 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
+  console.log(question);
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
     let button = document.createElement("button");
@@ -169,6 +170,7 @@ function selectAnswer(e) {
   } else {
     console.log(quizIndex);
     startButton.innerText = "restart";
+    document.getElementById("initials-submit").classList.remove("hide");
     startButton.classList.remove("hide");
     endGame();
   }
@@ -193,18 +195,10 @@ function clearStatusClass(element) {
 document
   .querySelector("#initials-submit")
   .addEventListener("click", function () {
-    initials + document.querySelector("#initials");
+    initials = document.querySelector("#initials").value;
+    localStorage.setItem("initials", initials);
     console.log(initials);
   });
-
-//My local storage
-function myStorage(initials) {
-  localStorage.setItem("initials", initials);
-}
-
-document.getElementById("myStorage").submit();
-{
-}
 
 function endGame() {
   clearInterval(timerInterval);
