@@ -53,6 +53,7 @@ let timer = document.getElementById("timer");
 let questionContainerElement = document.getElementById("question-container");
 let questionElement = document.getElementById("question");
 let answerButtonsElement = document.getElementById("answer-buttons");
+let highScoreListElement = document.getElementById("high-score-list");
 let timeLeft = 75;
 // let quizIndex = 0
 let timerInterval;
@@ -79,32 +80,6 @@ function startTimer() {
 }
 
 let initials = "";
-// let score = 0;
-// //Display High Score list
-// let highScoreList = JSON.parse(localStorage.getItem("highscore")) || [];
-// // let list = JSON.parse("highscore")
-// let Object = JSON.parse(scores);
-// let lowest_scoree = Object[5].score;
-// document.getElementById("low-score").value = lowest_score
-
-// //for loop
-// for (let i=0; i<Object.length; i==) {
-//   //console.log [i];
-//   let li = document.createElement("li");
-//   let txt = document.createTextNode(Object[i].name + " ... " + Object[i].score);
-//   li.appendChild(text);
-//   list.appendChild(li);
-
-//   if (i===0) {
-//     li.setAttribute("class","top1")
-//   }
-//   if (i===1){
-//     li.setAttribute("class", "top2")
-//   }
-//   if (i===2){
-//     li.setAttribute("class", "top3")
-//   }
-// }
 
 document.querySelector(".Highscores").addEventListener("click", function () {
   highScoreList.name = initials;
@@ -171,6 +146,7 @@ function selectAnswer(e) {
     console.log(quizIndex);
     startButton.innerText = "restart";
     document.getElementById("initials-submit").classList.remove("hide");
+    document.getElementById("initials").classList.remove("hide");
     startButton.classList.remove("hide");
     endGame();
   }
@@ -197,15 +173,52 @@ document
   .addEventListener("click", function () {
     initials = document.querySelector("#initials").value;
     localStorage.setItem("initials", initials);
+    localStorage.setItem("timeLeft", timeLeft);
+
+    setHighScore();
+
+    // localStorage;
     console.log(initials);
   });
+document.querySelector(".Highscore");
+
+function setHighScore() {
+  // //Display High Score list
+  let highScoreList = JSON.parse(localStorage.getItem("highscore")) || [];
+  var initials = localStorage.getItem("initials");
+  var timeLeft = localStorage.getItem("timeLeft");
+  highScoreList.push({
+    initials: initials,
+    timeLeft: timeLeft,
+  });
+  localStorage.setItem("highscore", JSON.stringify(highScoreList));
+  console.log("in");
+
+  // //for loop
+  for (let i = 0; i < highScoreList.length; i++) {
+    //console.log [i];
+    let li = document.createElement("li");
+    let txt = document.createTextNode(
+      highScoreList[i].initials + " ... " + highScoreList[i].timeLeft
+    );
+    li.appendChild(txt);
+    highScoreListElement.appendChild(li);
+
+    if (i === 0) {
+      li.setAttribute("class", "top1");
+    }
+    if (i === 1) {
+      li.setAttribute("class", "top2");
+    }
+    if (i === 2) {
+      li.setAttribute("class", "top3");
+    }
+  }
+}
 
 function endGame() {
   clearInterval(timerInterval);
-  timeLeft = 0;
   timer.textContent = "Time Left: " + timeLeft;
-  //hide all the buttons document ID and answer buttons
-  //
   //end the quiz
   //track your score by logging your initials
 }

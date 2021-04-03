@@ -40,7 +40,7 @@ body.wrong {
 .container {
   width: 800px;
   max-width: 25%;
-  background-color: aqua;
+  background-color: lightblue;
   border-radius: 10px;
   padding-left: 15px;
 }
