@@ -1,1 +1,2 @@
+For this week's homework assignment we had the challenge of creating a Code Quiz from scratch. My quiz follows the accepted criteria but with an added twist. Not only will you lose time if you answer incorrectly the background color will turn red as well. Now if you answer correctly no time will be deducted but the background color will turn green before you go on to the next question.
 # Code-Quiz
