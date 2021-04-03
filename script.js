@@ -75,33 +75,33 @@ function startTimer() {
   }, 1000);
 }
 
-let initials = "";
-let score = 0;
-//Display High Score list
-let highScoreList = JSON.parse(localStorage.getItem("highscore")) || [];
-// let list = JSON.parse("highscore")
-let Object = JSON.parse(scores);
-let lowest_scoree = Object[5].score;
-document.getElementById("lowscore").value = lowest_scoree
+// let initials = "";
+// let score = 0;
+// //Display High Score list
+// let highScoreList = JSON.parse(localStorage.getItem("highscore")) || [];
+// // let list = JSON.parse("highscore")
+// let Object = JSON.parse(scores);
+// let lowest_scoree = Object[5].score;
+// document.getElementById("low-score").value = lowest_score
 
-//for loop
-for (let i=0; i<Object.length; i==){
-  //console.log [i];
-  let li = document.createElement("li");
-  let txt = document.createTextNode(Object[i].name + " ... " + Object[i].score);
-  li.appendChild(text);
-  list.appendChild(li);
+// //for loop
+// for (let i=0; i<Object.length; i==) {
+//   //console.log [i];
+//   let li = document.createElement("li");
+//   let txt = document.createTextNode(Object[i].name + " ... " + Object[i].score);
+//   li.appendChild(text);
+//   list.appendChild(li);
 
-  if (i===0) {
-    li.setAttribute("class","top1")
-  }
-  if (i===1){
-    li.setAttribute("class", "top2")
-  }
-  if (i===2){
-    li.setAttribute("class", "top3")
-  }
-}
+//   if (i===0) {
+//     li.setAttribute("class","top1")
+//   }
+//   if (i===1){
+//     li.setAttribute("class", "top2")
+//   }
+//   if (i===2){
+//     li.setAttribute("class", "top3")
+//   }
+// }
 
 document.querySelector(".Highscores").addEventListener("click", function () {
   highScoreList.name = initials;

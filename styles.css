@@ -1,16 +1,17 @@
-*,
-*::before,
-*::after {
+/* all the element will be box-sizing */
+*, *::before, *::after {
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* The default background color plus the color for correct and wrong when applied */
 :root {
   --hue-neutral: 200;
   --hue-correct: 145;
   --hue-wrong: 0;
 }
 
+/* The body of the quiz */
 body {
   --hue: var(--hue-neutral);
   padding: 0;
@@ -23,21 +24,24 @@ body {
   background-color: hsl(var(--hue), 100%, 50%);
 }
 
+/* The background color for a correct */
 body.correct {
   --hue: var(--hue-correct);
 }
 
+/* The background color for a wrong answer */
 body.wrong {
   --hue: var(--hue-wrong);
 }
 
+/* The styling for our question container */
 .container {
   width: 800px;
   max-width: 80%;
   background-color: aqua;
   border-radius: 10px;
 
-
+/* The styling for our button layout */
 .button-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -45,6 +49,7 @@ body.wrong {
   margin: 20px 0;
 }
 
+/* The styling of the button layout */
 .button {
   --hue: var(--hue-neutral);
   border: 1px solid hsl(var(--hue)), 100%, 30%;
@@ -55,19 +60,23 @@ body.wrong {
   outline: none;
 }
 
+/* If you hover over a box you get a black outline */
 .button:hover {
   border-color: black;
 }
 
+/* The green styling for correct */
 .button.correct {
   --hue: var(--hue-correct);
   color: black;
 }
 
+/* The red styling for wrong */
 .button.wrong {
   --hue: var(--hue-wrong);
 }
 
+/* The styling for my start and next button */
 .start-button,
 .next-button {
   font-size: 15px;
@@ -75,12 +84,14 @@ body.wrong {
   padding: 10px 20px;
 }
 
+/* The styling for the controls */
 .controls {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* This should hide the quiz until you click start */
 .hide {
   display: none;
 }
