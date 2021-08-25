@@ -82,9 +82,13 @@ function startTimer() {
 let initials = "";
 
 document.querySelector(".Highscores").addEventListener("click", function () {
-  highScoreList.name = initials;
-  highScoreList.score = score;
-  hideAll();
+  var highScoreList = document.getElementById("high-score-list");
+  var scores = JSON.parse(localStorage.getItem("highscore"));
+  scores.forEach(function (score) {
+    var li = document.createElement("li");
+    li.textContent = score.initials + ": " + score.timeLeft;
+    highScoreList.append(li);
+  });
   showScore();
 });
 
