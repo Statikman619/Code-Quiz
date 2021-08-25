@@ -72,9 +72,9 @@ function startTimer() {
     timeLeft--;
     timer.textContent = "Time Left: " + timeLeft;
     if (timeLeft <= 0) {
-      clearInterval(timerInterval);
       timeLeft = 0;
       timer.textContent = "Time Left: " + timeLeft;
+      endGame();
     }
   }, 1000);
 }
